@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_camera"
+            android:icon="@drawable/ic_cpu_cooler"
+            android:title="CPU Cooler" />
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/ic_nofi_brush"
+            android:title="Notification Cleaner" />
+        <item
+            android:id="@+id/nav_slideshow"
+            android:icon="@drawable/ic_lock"
+            android:title="AppLock" />
+        <item
+            android:id="@+id/nav_manage"
+            android:icon="@drawable/ic_whats_app"
+            android:title="WhatsApp Cleaner" />
+        <item
+            android:icon="@drawable/ic_andv_cleaning"
+            android:title="Advanced Cleaning" />
+        <item
+            android:icon="@drawable/ic_safe_brow"
+            android:title="Safe Browsing" />
+    </group>
+
+    <item android:title="">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_update"
+                android:title="Upload" />
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_feedback"
+                android:title="Feedback" />
+            <item
+                android:icon="@drawable/ic_shortcut"
+                android:title="Desktop Shortcuts" />
+            <item
+                android:icon="@drawable/ic_setting"
+                android:title="Settings" />
+        </menu>
+    </item>
+
+</menu>
