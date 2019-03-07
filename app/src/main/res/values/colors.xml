@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">@color/BE_5</color>
     <color name="colorPrimaryDark">@color/BE_6</color>
-    <color name="colorAccent">@color/white</color>
+    <color name="colorAccent">@color/Spe_A24</color>
 
 
     <color name="G_1">#8effc1</color>
@@ -19,7 +19,7 @@
     <color name="G_12">#005c01</color>
 
 
-    <color name="B_1">#39d5ff</color>
+    <color name="B_1">#39D5FF</color>
     <color name="B_2">#29c5ff</color>
     <color name="B_3">#19B5FE</color>
     <color name="B_4">#22A7F0</color>
@@ -56,9 +56,9 @@
     <color name="BE_6">#7e349d</color>
     <color name="BE_7">#6e248d</color>
     <color name="BE_8">#5e147d</color>
-    <color name="BE_9">#4e046d</color>
+    <color name="BE_9">#4E046D</color>
     <color name="BE_10">#3e005d</color>
-    <color name="BE_11">#1e003d</color>
+    <color name="BE_11">#1E003D</color>
 
     <color name="Spe_A1">#1abc9c</color>
     <color name="Spe_A2">#16a085</color>
