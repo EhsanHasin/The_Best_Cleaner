@@ -40,10 +40,6 @@ public class MainActivity extends AppCompatActivity
             ,
             Manifest.permission.GET_PACKAGE_SIZE
 
-
-
-
-
     };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -173,4 +169,8 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
+    public void OnMemory(View view) {
+
+        startActivity(new Intent(this,Momory_Boster.class));
+    }
 }
