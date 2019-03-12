@@ -109,6 +109,7 @@
 
                         <ImageView
                             android:layout_width="30dp"
+                            android:onClick="OnMemory"
                             android:layout_height="30dp"
                             android:src="@drawable/ic_memory_boost"/>
 
