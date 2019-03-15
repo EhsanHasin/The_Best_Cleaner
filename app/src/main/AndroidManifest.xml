@@ -36,7 +36,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Momory_Boster"></activity>
+        <activity android:name=".SAFE_BROWSING.Browser"></activity>
+        <activity android:name=".SAFE_BROWSING.Safe_Brosing" />
+        <activity android:name=".Momory_Boster" />
         <activity android:name=".Junk_File_Activity" />
         <activity android:name=".UnInstal_App_Activity" />
         <activity android:name=".Advance_Cleaning" />
