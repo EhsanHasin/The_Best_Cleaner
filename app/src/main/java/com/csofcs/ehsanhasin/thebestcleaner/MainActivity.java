@@ -2,7 +2,6 @@ package com.csofcs.ehsanhasin.thebestcleaner;
 
 import android.Manifest;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -66,8 +65,6 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
-
     }
 
     @Override
@@ -175,10 +172,5 @@ public class MainActivity extends AppCompatActivity
     public void OnMemory(View view) {
 
         startActivity(new Intent(this,Momory_Boster.class));
-    }
-
-    public void appLock(View view) {
-        Intent intent = new Intent(this,AppLock.class);
-        startActivity(intent);
     }
 }

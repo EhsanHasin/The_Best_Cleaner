@@ -36,7 +36,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Momory_Boster" />
+        <activity android:name=".Momory_Boster"></activity>
         <activity android:name=".Junk_File_Activity" />
         <activity android:name=".UnInstal_App_Activity" />
         <activity android:name=".Advance_Cleaning" />
@@ -51,9 +51,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".LaunchRocketValueAnimatorAnimationActivity" />
-        <activity android:name=".AppLock"></activity>
-        <activity android:name=".CreatePasswordActivity" />
-        <activity android:name=".InputPasswordActivity" />
     </application>
 
 </manifest>
