@@ -319,6 +319,7 @@
                     android:orientation="vertical"
                     android:layout_marginLeft="20dp"
                     android:gravity="left"
+                    android:onClick="appLock"
                     app:layout_constraintLeft_toRightOf="@id/img2"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent">

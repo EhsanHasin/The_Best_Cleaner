@@ -17,7 +17,8 @@
             android:layout_gravity="center"
             android:id="@+id/appimage"
             android:layout_width="@dimen/_40sdp"
-            android:layout_height="@dimen/_40sdp" />
+            android:layout_height="@dimen/_40sdp"
+            android:layout_margin="30dp"/>
 
         <TextView
             android:id="@+id/apptext"
@@ -38,7 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:focusable="auto"
-            android:text="Uninstall" />
+            android:text="" />
 
 
     </LinearLayout>

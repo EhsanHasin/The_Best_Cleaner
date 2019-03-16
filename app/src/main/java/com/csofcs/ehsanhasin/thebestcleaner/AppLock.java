@@ -1,68 +1,77 @@
 package com.csofcs.ehsanhasin.thebestcleaner;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
-import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
-import android.view.animation.OvershootInterpolator;
 import android.widget.ProgressBar;
 
-import com.csofcs.ehsanhasin.thebestcleaner.Adapter.Junk_Apps_Adapter;
+import com.csofcs.ehsanhasin.thebestcleaner.Adapter.Apps_Adapter;
 import com.csofcs.ehsanhasin.thebestcleaner.Model.Apps;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import jp.wasabeef.recyclerview.animators.SlideInLeftAnimator;
-import jp.wasabeef.recyclerview.animators.SlideInUpAnimator;
+public class AppLock extends AppCompatActivity {
 
-public class UnInstal_App_Activity extends AppCompatActivity {
-
-
-    List<ApplicationInfo> packages;
     public List<Apps> app_arry;
     ProgressBar bar;
-
-    Junk_Apps_Adapter mAdapter;
+    Apps_Adapter mAdapter;
     RecyclerView recyclerView;
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_un_instal__app);
+        setContentView(R.layout.activity_app_lock);
+
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        SharedPreferences preferences = getSharedPreferences("PREFS",0);
+        String password = preferences.getString("password", "0");
+        if (password.equals("0")){
+            Intent intent = new Intent(getApplicationContext(),CreatePasswordActivity.class);
+            startActivity(intent);
+            finish();
+        }else if (password.equals("1")){
+
+        }else {
+            Intent intent = new Intent(getApplicationContext(),InputPasswordActivity.class);
+            startActivity(intent);
+            finish();
+        }
 
         app_arry = new ArrayList<>();
-
 
         bar = findViewById(R.id.progressBar);
         bar.setVisibility(View.VISIBLE);
 
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        mAdapter = new Junk_Apps_Adapter(app_arry);
-        recyclerView.setItemAnimator(new SlideInLeftAnimator());
-        recyclerView.addItemDecoration(new SimpleDividerItemDecoration(this));
+        recyclerView = findViewById(R.id.recycler_view);
+        mAdapter = new Apps_Adapter(app_arry);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.setItemAnimator(new SlideInUpAnimator(new OvershootInterpolator(1f)));
         recyclerView.computeHorizontalScrollExtent();
-
         recyclerView.setAdapter(mAdapter);
-        recyclerView.addItemDecoration(new SimpleDividerItemDecoration(this));
 
         load load = new load();
         load.execute();
-    }
 
+
+    }
 
     class load extends AsyncTask<Void, Long, List<Apps>> {
         @Override
@@ -126,51 +135,6 @@ public class UnInstal_App_Activity extends AppCompatActivity {
 
         }
     }
-
-    public void add(String text, int position) {
-
-
-//        for (int i = 0; i < packages.size() - 1; i++) {
-//
-//
-//            Drawable ico = null;
-//
-//            Apps item = new Apps();
-//
-//            String packageName = packages.get(i).packageName;
-//            String pName = "";
-//            int size = 0;
-//            try {
-//                pName = (String) pm.getApplicationLabel(pm.getApplicationInfo(packageName, PackageManager.GET_META_DATA));
-//                ApplicationInfo a = pm.getApplicationInfo(packageName, PackageManager.GET_META_DATA);
-//                if (packageName.startsWith("com.android.") || packageName.startsWith("com.google.")) {
-//
-//                } else {
-//                    item.setCatgory("p");
-//                    item.setImage(ico = getPackageManager().getApplicationIcon(packages.get(i).packageName));
-//                    item.setSize(pName);
-//                    app_arry.add(item);
-//                    mAdapter.notifyItemInserted(position);
-//
-//                }
-//
-//            } catch (PackageManager.NameNotFoundException e) {
-//                e.printStackTrace();
-//            }
-//
-//
-////        mDataSet.add(position, text);
-//
-//        }
-    }
-
-
-    public void remove(int position) {
-//        mDataSet.add(position, text);
-        mAdapter.notifyItemRemoved(position);
-        app_arry.remove(position);
-    }
-
     public static long getPackageSize(Context context, String packageName) {
         PackageManager packageManager = context.getPackageManager();
         try {
@@ -182,36 +146,25 @@ public class UnInstal_App_Activity extends AppCompatActivity {
         return 0;
     }
 
-    public class SimpleDividerItemDecoration extends RecyclerView.ItemDecoration {
-        private Drawable mDivider;
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.app_locak,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
 
-        public SimpleDividerItemDecoration(Context context) {
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                mDivider = context.getResources().getDrawable(R.drawable.line_divvide, context.getTheme());
-            } else {
-                mDivider = context.getResources().getDrawable(R.drawable.line_divvide);
-
-            }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (id){
+            case R.id.menu_done:
+                finish();
+                break;
+            case R.id.menu_lock:
+                Intent intent = new Intent(getApplicationContext(),CreatePasswordActivity.class);
+                startActivity(intent);
+                finish();
+                break;
         }
-
-        @Override
-        public void onDrawOver(Canvas c, RecyclerView parent, RecyclerView.State state) {
-            int left = parent.getPaddingLeft();
-            int right = parent.getWidth() - parent.getPaddingRight();
-
-            int childCount = parent.getChildCount();
-            for (int i = 0; i < childCount; i++) {
-                View child = parent.getChildAt(i);
-
-                RecyclerView.LayoutParams params = (RecyclerView.LayoutParams) child.getLayoutParams();
-
-                int top = child.getBottom() + params.bottomMargin;
-                int bottom = top + mDivider.getIntrinsicHeight();
-
-                mDivider.setBounds(left, top, right, bottom);
-                mDivider.draw(c);
-            }
-        }
+        return super.onOptionsItemSelected(item);
     }
 }
