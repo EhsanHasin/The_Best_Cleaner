@@ -1,6 +1,5 @@
 package com.csofcs.ehsanhasin.thebestcleaner.SAFE_BROWSING;
 
-import android.annotation.SuppressLint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -18,8 +17,6 @@ public class Safe_Brosing extends AppCompatActivity {
     EditText editTex;
     Button btn;
 
-    @SuppressLint("ClickableViewAccessibility")
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_safe__brosing);
@@ -36,42 +33,42 @@ public class Safe_Brosing extends AppCompatActivity {
 //        });
 
 
-        editTex.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                toolbar.setVisibility(View.GONE);
-                btn.setVisibility(View.VISIBLE);
-
-                return false;
-            }
-        });
-
-        editTex.setOnKeyListener(new View.OnKeyListener() {
-            @Override
-            public boolean onKey(View v, int keyCode, KeyEvent event) {
-
-                if(!TextUtils.isEmpty(editTex.getText().toString().trim())){
-                    btn.setText("search");
-                }else {
-                    btn.setText("cancel");
-                }
-                return false;
-            }
-        });
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if(!TextUtils.isEmpty(editTex.getText().toString().trim())){
-                    btn.setText("search");
-
-                }else {
-                    btn.setText("cancel");
-                    toolbar.setVisibility(View.VISIBLE);
-                    btn.setVisibility(View.GONE);
-                }
-
-            }
-        });
+//        editTex.setOnTouchListener(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View v, MotionEvent event) {
+//                toolbar.setVisibility(View.GONE);
+//                btn.setVisibility(View.VISIBLE);
+//
+//                return false;
+//            }
+//        });
+//
+//        editTex.setOnKeyListener(new View.OnKeyListener() {
+//            @Override
+//            public boolean onKey(View v, int keyCode, KeyEvent event) {
+//
+//                if(!TextUtils.isEmpty(editTex.getText().toString().trim())){
+//                    btn.setText("search");
+//                }else {
+//                    btn.setText("cancel");
+//                }
+//                return false;
+//            }
+//        });
+//        btn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                if(!TextUtils.isEmpty(editTex.getText().toString().trim())){
+//                    btn.setText("search");
+//
+//                }else {
+//                    btn.setText("cancel");
+//                    toolbar.setVisibility(View.VISIBLE);
+//                    btn.setVisibility(View.GONE);
+//                }
+//
+//            }
+//        });
     }
 }

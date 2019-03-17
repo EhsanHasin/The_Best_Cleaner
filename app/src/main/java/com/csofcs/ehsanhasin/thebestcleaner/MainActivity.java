@@ -18,6 +18,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.csofcs.ehsanhasin.thebestcleaner.SAFE_BROWSING.Safe_Brosing;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -170,7 +172,16 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void OnMemory(View view) {
-
         startActivity(new Intent(this,Momory_Boster.class));
+    }
+
+    public void Safe_browser(View view) {
+        Intent intent = new Intent(this,Safe_Brosing.class);
+        startActivity(intent);
+    }
+
+    public void appLock(View view) {
+        Intent intent = new Intent(this,AppLock.class);
+        startActivity(intent);
     }
 }

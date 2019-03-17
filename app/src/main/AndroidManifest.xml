@@ -51,6 +51,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".LaunchRocketValueAnimatorAnimationActivity" />
+        <activity android:name=".SAFE_BROWSING.Safe_Brosing"/>
+        <activity android:name=".AppLock"/>
+        <activity android:name=".CreatePasswordActivity"/>
+        <activity android:name=".InputPasswordActivity"/>
     </application>
 
 </manifest>
